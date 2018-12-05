@@ -66,4 +66,10 @@ public class ArticleController {
         json.put("list",back);
         return json;
     }
+    @PostMapping("/browse")
+    public Result browse(@RequestParam() Integer id, @RequestParam(defaultValue = "0") Integer clickNum){
+        clickNum++;
+        articleService.browse(id,clickNum);
+        return ResultGenerator.genSuccessResult();
+    }
 }
