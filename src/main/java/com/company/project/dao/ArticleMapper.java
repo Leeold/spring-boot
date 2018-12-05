@@ -9,4 +9,5 @@ import java.util.List;
 public interface ArticleMapper extends Mapper<Article> {
     List<Article> backList(Integer type);
     List<Article> frontList();
+    void browse(Integer id,Integer clickNum);
 }

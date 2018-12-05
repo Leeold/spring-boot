@@ -28,5 +28,11 @@ public class ArticleServiceImpl extends AbstractService<Article> implements Arti
     public List<Article> frontList(){
         return articleMapper.frontList();
     }
+    @Override
+    public void browse(Integer id, Integer clickNum){
+
+         articleMapper.browse(id,clickNum);
+
+    }
 
 }
