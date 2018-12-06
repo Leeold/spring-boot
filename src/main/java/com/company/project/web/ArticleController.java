@@ -52,6 +52,11 @@ public class ArticleController {
         PageInfo pageInfo = new PageInfo(list);
         return ResultGenerator.genSuccessResult(pageInfo);
     }
+    @GetMapping("/getAll")
+    public Result getAll(){
+        List<Article> list = articleService.getAll();
+        return ResultGenerator.genSuccessResult(list);
+    }
     @PostMapping("/back/list")
     public Map<String,Object> backList(@RequestParam Integer type){
         Map<String,Object> json =new HashMap<>();

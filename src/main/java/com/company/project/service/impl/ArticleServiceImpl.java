@@ -20,6 +20,8 @@ public class ArticleServiceImpl extends AbstractService<Article> implements Arti
     @Resource
     private ArticleMapper articleMapper;
     @Override
+    public List<Article> getAll(){return articleMapper.getAll();}
+    @Override
     public List<Article> backList(Integer type){
         return articleMapper.backList(type);
     }
