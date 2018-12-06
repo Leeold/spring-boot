@@ -7,5 +7,5 @@ import com.company.project.core.Service;
  * Created by CodeGenerator on 2018/11/26.
  */
 public interface UserService extends Service<User> {
-
+    User login (User user);
 }

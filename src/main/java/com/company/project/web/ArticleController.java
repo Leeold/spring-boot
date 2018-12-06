@@ -59,13 +59,6 @@ public class ArticleController {
         json.put("list",back);
         return json;
     }
-    @PostMapping("/front/list")
-    public Map<String,Object> frontList(){
-        Map<String,Object> json =new HashMap<>();
-        List<Article> back = articleService.frontList();
-        json.put("list",back);
-        return json;
-    }
     @PostMapping("/browse")
     public Result browse(@RequestParam() Integer id, @RequestParam(defaultValue = "0") Integer clickNum){
         clickNum++;

@@ -53,4 +53,9 @@ public class UserController {
         PageInfo pageInfo = new PageInfo(list);
         return ResultGenerator.genSuccessResult(pageInfo);
     }
+    @PostMapping("/login")
+    public Result login(User user){
+        User usr = userService.login(user);
+        return ResultGenerator.genSuccessResult(usr);
+    }
 }

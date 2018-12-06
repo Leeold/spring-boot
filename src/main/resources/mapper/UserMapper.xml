@@ -14,4 +14,7 @@
     <result column="mobile" jdbcType="INTEGER" property="mobile" />
     <result column="email" jdbcType="VARCHAR" property="email" />
   </resultMap>
+  <select id="login" resultMap="BaseResultMap">
+    SELECT * from user where username = #{username};
+  </select>
 </mapper>

@@ -10,6 +10,5 @@ import java.util.List;
  */
 public interface ArticleService extends Service<Article> {
     List<Article> backList(Integer type);
-    List<Article> frontList();
     void browse (Integer id,Integer clickNum);
 }
