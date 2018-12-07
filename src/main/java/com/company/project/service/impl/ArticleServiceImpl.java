@@ -31,5 +31,9 @@ public class ArticleServiceImpl extends AbstractService<Article> implements Arti
          articleMapper.browse(id,clickNum);
 
     }
+    @Override
+    public Integer getPage(){
+        return articleMapper.getPage();
+    }
 
 }

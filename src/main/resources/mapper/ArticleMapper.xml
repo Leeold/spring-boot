@@ -19,10 +19,13 @@
     id, object_id, title, description, content, img_url, create_date, type ,click_num
   </sql>
   <select id="getAll" resultMap="BaseResultMap">
-    SELECT <include refid="Base_Column_List" /> from article order by create_date desc;
+    SELECT * from article;
+  </select>
+  <select id="getPage" resultType="java.lang.Integer">
+    SELECT COUNT(*) from article WHERE not id is null;
   </select>
   <select id="backList" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    SELECT * from article where article.type = #{type};
+    SELECT * from article where article.type = #{type} order by create_date desc;
   </select>
   <select id="frontList" resultMap="BaseResultMap">
     SELECT * from article where article.type = 2;

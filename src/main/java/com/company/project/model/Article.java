@@ -28,6 +28,7 @@ public class Article {
 
     private String content;
 
+
     /**
      * @return id
      */
@@ -41,6 +42,7 @@ public class Article {
     public void setId(Integer id) {
         this.id = id;
     }
+
 
     /**
      * @return object_id
