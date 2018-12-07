@@ -46,18 +46,18 @@ public class ArticleController {
     }
 
     @PostMapping("/list")
-    public Result list(@RequestParam(defaultValue = "3") Integer page, @RequestParam(defaultValue = "3") Integer size) {
+    public Result list(@RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "5") Integer size) {
         PageHelper.startPage(page, size);
         List<Article> list = articleService.findAll();
         PageInfo pageInfo = new PageInfo(list);
         return ResultGenerator.genSuccessResult(pageInfo);
     }
     @PostMapping("/getAll")
-    public Result getAll(@RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "3") Integer size){
+    public Result getAll(@RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "5") Integer size){
 
         PageHelper.startPage(page, size);
-        List<Article> list1 = articleService.getAll();
-        PageInfo pageInfo = new PageInfo(list1);
+        List<Article> list = articleService.getAll();
+        PageInfo pageInfo = new PageInfo(list);
 //        Map<String,Object> json =new HashMap<>();
 //        Integer count = articleService.getPage();
 //        json.put("list",list);
