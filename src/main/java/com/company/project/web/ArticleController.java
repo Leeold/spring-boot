@@ -65,11 +65,11 @@ public class ArticleController {
         return ResultGenerator.genSuccessResult(pageInfo);
     }
     @PostMapping("/back/list")
-    public Map<String,Object> backList(@RequestParam Integer type){
-        Map<String,Object> json =new HashMap<>();
+    public Result backList(@RequestParam Integer type,@RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "5") Integer size){
+        PageHelper.startPage(page, size);
         List<Article> back = articleService.backList(type);
-        json.put("list",back);
-        return json;
+        PageInfo pageInfo = new PageInfo(back);
+        return ResultGenerator.genSuccessResult(pageInfo);
     }
     @PostMapping("/browse")
     public Result browse(@RequestParam() Integer id, @RequestParam(defaultValue = "0") Integer clickNum){
