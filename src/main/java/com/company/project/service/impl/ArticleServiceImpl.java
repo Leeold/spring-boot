@@ -35,5 +35,9 @@ public class ArticleServiceImpl extends AbstractService<Article> implements Arti
     public Integer getPage(){
         return articleMapper.getPage();
     }
+    @Override
+    public List<Article> getByTitle(String title){
+        return articleMapper.getByTitle(title);
+    }
 
 }

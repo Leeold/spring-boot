@@ -10,4 +10,5 @@ public interface ArticleMapper extends Mapper<Article> {
     List<Article> backList(Integer type);
     void browse(Integer id,Integer clickNum);
     Integer getPage();
+    List<Article> getByTitle(String title);
 }

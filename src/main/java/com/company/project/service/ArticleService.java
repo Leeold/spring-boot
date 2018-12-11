@@ -12,5 +12,6 @@ public interface ArticleService extends Service<Article> {
     List<Article> getAll();
     List<Article> backList(Integer type);
     void browse (Integer id,Integer clickNum);
+    List<Article> getByTitle(String title);
     Integer getPage();
 }

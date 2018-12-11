@@ -5,6 +5,7 @@ import com.company.project.model.Article;
 import com.company.project.service.ArticleService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -53,7 +54,7 @@ public class ArticleController {
         return ResultGenerator.genSuccessResult(pageInfo);
     }
     @PostMapping("/getAll")
-    public Result getAll(@RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "5") Integer size){
+    public Result getAll(@RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "6") Integer size){
 
         PageHelper.startPage(page, size);
         List<Article> list = articleService.getAll();
@@ -65,7 +66,7 @@ public class ArticleController {
         return ResultGenerator.genSuccessResult(pageInfo);
     }
     @PostMapping("/back/list")
-    public Result backList(@RequestParam Integer type,@RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "5") Integer size){
+    public Result backList(@RequestParam Integer type,@RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "6") Integer size){
         PageHelper.startPage(page, size);
         List<Article> back = articleService.backList(type);
         PageInfo pageInfo = new PageInfo(back);
@@ -76,5 +77,10 @@ public class ArticleController {
         clickNum++;
         articleService.browse(id,clickNum);
         return ResultGenerator.genSuccessResult();
+    }
+    @PostMapping("/getByTitle")
+    public Result getByTitle(@RequestParam("title") String title){
+        List<Article> list = articleService.getByTitle(title);
+        return ResultGenerator.genSuccessResult(list);
     }
 }

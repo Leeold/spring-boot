@@ -30,6 +30,9 @@
   <select id="frontList" resultMap="BaseResultMap">
     SELECT * from article where article.type = 2;
   </select>
+  <select id="getByTitle" parameterType="java.lang.String" resultMap="BaseResultMap">
+    SELECT * from article WHERE title LIKE CONCAT('%',#{title},'%')
+  </select>
   <update id="browse" parameterType="java.lang.Integer">
     UPDATE article
     <set>
