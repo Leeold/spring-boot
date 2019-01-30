@@ -53,6 +53,13 @@ public class ArticleController {
         PageInfo pageInfo = new PageInfo(list);
         return ResultGenerator.genSuccessResult(pageInfo);
     }
+
+    /**
+     * 请求所有文章列表接口
+     * @param page
+     * @param size
+     * @return
+     */
     @PostMapping("/getAll")
     public Result getAll(@RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "6") Integer size){
 
@@ -72,12 +79,25 @@ public class ArticleController {
         PageInfo pageInfo = new PageInfo(back);
         return ResultGenerator.genSuccessResult(pageInfo);
     }
+
+    /**
+     * 统计浏览次数接口
+     * @param id
+     * @param clickNum
+     * @return
+     */
     @PostMapping("/browse")
     public Result browse(@RequestParam() Integer id, @RequestParam(defaultValue = "0") Integer clickNum){
         clickNum++;
         articleService.browse(id,clickNum);
         return ResultGenerator.genSuccessResult();
     }
+
+    /**
+     * 通过标题搜索接口
+     * @param title
+     * @return
+     */
     @PostMapping("/getByTitle")
     public Result getByTitle(@RequestParam("title") String title){
         List<Article> list = articleService.getByTitle(title);
