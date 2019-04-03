@@ -14,13 +14,21 @@ public class printListFromTailToHead {
             stack.push(listNode.val);
             listNode = listNode.next;
         }
-
         ArrayList<Integer> list = new ArrayList<>();
         while (!stack.isEmpty()) {
             list.add(stack.pop());
         }
         return list;
     }
+
+//    ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
+//        ArrayList<Integer> arrayList=new ArrayList<Integer>();
+//        if(listNode!=null){
+//            this.printListFromTailToHead(listNode.next);
+//            arrayList.add(listNode.val);
+//        }
+//        return arrayList;
+//    }
 
     public static void main(String[] args) {
         ListNode listNode = new ListNode(1);
@@ -29,6 +37,7 @@ public class printListFromTailToHead {
         listNode2.next = new ListNode(3);
         System.out.println(printListFromTailToHead(listNode));
     }
+
 }
 
 class ListNode {
