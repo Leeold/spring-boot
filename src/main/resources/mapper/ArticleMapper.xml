@@ -19,7 +19,7 @@
     id, object_id, title, description, content, img_url, create_date, type ,click_num
   </sql>
   <select id="getAll" resultMap="BaseResultMap">
-    SELECT * from article order by create_date desc
+    SELECT * from article
   </select>
   <select id="getPage" resultType="java.lang.Integer">
     SELECT COUNT(*) from article WHERE not id is null
