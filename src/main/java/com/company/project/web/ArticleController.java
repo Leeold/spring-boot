@@ -103,4 +103,13 @@ public class ArticleController {
         List<Article> list = articleService.getByTitle(title);
         return ResultGenerator.genSuccessResult(list);
     }
+
+    @GetMapping("/hash")
+    public Result getList(){
+        HashMap<String,String>json = new HashMap<>();
+        json.put("name","李东齐");
+        json.put("age","20");
+        json.put("age","30");
+        return ResultGenerator.genSuccessResult(json);
+    }
 }
