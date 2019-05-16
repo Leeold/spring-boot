@@ -1,12 +1,15 @@
 package com.company.project.compute;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 插入排序
  */
 public class InsertSort {
     public static void main(String[] args) {
         int[] arr = {3,4,7,84,3,6,71,1};
-
+        List arr1 = new ArrayList<>();
         for(int i = 1;i<arr.length;i++){
             for(int j=i;j>0;j--){
                 if(arr[j-1]>arr[j]){
