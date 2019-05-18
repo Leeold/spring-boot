@@ -60,7 +60,7 @@ public class ArticleController {
      * @param size
      * @return
      */
-    @PostMapping("/getAll")
+    @GetMapping("/getAll")
     public Result getAll(@RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "6") Integer size){
 
         PageHelper.startPage(page, size);
