@@ -1,19 +1,17 @@
 package com.company.project.thread.thread1;
 
+import org.omg.SendingContext.RunTime;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 public class demo {
     public static void main(String[] args) {
-        int[] arr = {6,-3,-2,7,-15,1,2,2};
-        int data = maxNum(arr);
-        System.out.println(data);
+
+        System.out.println("Java进程可以向操作系统申请到的最大内存:"+(Runtime.getRuntime().maxMemory())/(1024*1024)+"M");
+        System.out.println("Java进程空闲内存:"+(Runtime.getRuntime().freeMemory())/(1024*1024)+"M");
+        System.out.println("Java进程现在从操作系统那里已经申请了内存:"+(Runtime.getRuntime().totalMemory())/(1024*1024)+"M");
     }
 
-    private static int maxNum(int[] arr) {
-        int result  = arr[0];
-        int max = arr[0];
-        for(int i=1;i<arr.length;i++){
-            max = Math.max(max+arr[i],arr[i]);
-            result = Math.max(max,result);
-        }
-        return result;
-    }
 }
