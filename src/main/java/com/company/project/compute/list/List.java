@@ -79,13 +79,66 @@ public class List {
 
     }
 
+    /**
+     * 给一个链表，若其中包含环，请找出链表环的入口地点，否则输出null
+     * @param args
+     *
+     */
+
+    public static ListNode listLoop(ListNode listNode1){
+
+        if(listNode1 == null || listNode1.next == null){
+            return null;
+        }
+
+        boolean isLoop = false;
+      //使用快慢指针，慢指针每次向前一步，快指针每次两步
+        ListNode pre = listNode1;
+        ListNode next = listNode1;
+
+        //两指针相遇则有环
+        while (next != null && next.next !=null){
+            pre = pre.next;
+            next = next.next.next;
+            if(pre == next){
+                isLoop = true;
+                break;
+            }
+        }
+      //一个指针从链表头开始，一个从相遇点开始，每次一步，再次相遇的点即是入口节点
+        if(isLoop){
+            pre = listNode1;
+            while (next != null && next.next != null){
+                //两指针相遇的点即是入口节点
+                if(pre == next){
+                    System.out.println(pre.val);
+                    return pre;
+                }
+                pre =pre.next;
+                next = next.next;
+            }
+        }
+
+
+
+       return null;
+
+    }
+
+
+
+
 
 
     public static void main(String[] args) {
-        ListNode listNode = new ListNode(1);
+        ListNode listNode1 = new ListNode(1);
         ListNode listNode2 = new ListNode(2);
-        listNode.next = listNode2;
-        listNode2.next = new ListNode(3);
-        System.out.println(find(listNode,3));
+        ListNode listNode3 = new ListNode(3);
+        ListNode listNode4 = new ListNode(4);
+        listNode1.next = listNode2;
+        listNode2.next = listNode3;
+        listNode3.next = listNode4;
+        listNode4.next = listNode2;
+        System.out.println(listLoop(listNode1));
     }
 }
