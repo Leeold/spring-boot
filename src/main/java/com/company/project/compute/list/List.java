@@ -40,7 +40,7 @@ public class List {
                newHead = current;
            }
 
-           current.next = pre; // 反转链表指针
+           current.next = pre; // 反转链表指针,把当前节点的指针指向前一位
            pre = current;
            current = pNext;
 
@@ -77,6 +77,28 @@ public class List {
 
         return last;
 
+    }
+
+    public static ListNode find1(ListNode listNode,int k){
+        if(listNode ==null){
+            return null;
+        }
+        ListNode node = listNode;
+        int num =1;
+        while (node.next !=null){
+            num++;
+            node = node.next;
+        }
+        if(num < k){
+            return null;
+        }
+
+        ListNode head = listNode;
+        for(int i=0;i< num-k ;i++){
+            head = head.next;
+        }
+
+        return head;
     }
 
     /**
