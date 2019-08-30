@@ -4,6 +4,7 @@ import java.util.Date;
 import javax.persistence.*;
 
 public class User {
+    public static final Long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

@@ -40,4 +40,11 @@
     </set>
     WHERE id = #{arg0}
   </update>
+  <update id="updateById">
+    update article
+    <set>
+     title = "我的测试"
+    </set>
+    where id = #{i}
+  </update>
 </mapper>

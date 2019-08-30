@@ -65,6 +65,8 @@ public class ArticleController {
 
         PageHelper.startPage(page, size);
         List<Article> list = articleService.getAll();
+        int i = articleService.updateById(3);
+        System.out.println(i);
         PageInfo pageInfo = new PageInfo(list);
 //        Map<String,Object> json =new HashMap<>();
 //        Integer count = articleService.getPage();

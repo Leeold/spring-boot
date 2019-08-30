@@ -11,4 +11,6 @@ public interface ArticleMapper extends Mapper<Article> {
     void browse(Integer id,Integer clickNum);
     Integer getPage();
     List<Article> getByTitle(String title);
+
+    int updateById(int i);
 }

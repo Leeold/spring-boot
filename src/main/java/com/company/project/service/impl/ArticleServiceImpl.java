@@ -35,6 +35,13 @@ public class ArticleServiceImpl extends AbstractService<Article> implements Arti
     public Integer getPage(){
         return articleMapper.getPage();
     }
+
+    @Override
+    public int updateById(int i) {
+        int j = articleMapper.updateById(i);
+        return j;
+    }
+
     @Override
     public List<Article> getByTitle(String title){
         return articleMapper.getByTitle(title);
