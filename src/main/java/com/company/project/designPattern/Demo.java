@@ -96,6 +96,8 @@ public class Demo {
     public static void main(String[] args) {
         System.out.println(Demo.getInstance() == Demo.getInstance());
         System.out.println(Demo.getInstance() == Demo.getInstance());
+        //测试撤销commit
+
     }
 
 
