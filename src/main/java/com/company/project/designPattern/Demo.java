@@ -7,6 +7,10 @@ import com.sun.media.jfxmediaimpl.HostUtils;
 import java.lang.reflect.Array;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.CopyOnWriteArraySet;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicStampedReference;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -89,14 +93,16 @@ public class Demo {
     }
     public static Demo getInstance(){
         if(instance == null){
-            instance = new Demo();
+            synchronized (Demo.class){
+                if(instance ==null){
+                    instance = new Demo();
+                }
+            }
         }
         return instance;
     }
     public static void main(String[] args) {
-        System.out.println(Demo.getInstance() == Demo.getInstance());
-        System.out.println(Demo.getInstance() == Demo.getInstance());
-        //测试撤销commit
+
 
     }
 
