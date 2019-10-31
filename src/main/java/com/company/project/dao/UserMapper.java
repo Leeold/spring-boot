@@ -1,8 +1,11 @@
 package com.company.project.dao;
 
-import com.company.project.core.Mapper;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.company.project.model.User;
+import org.apache.ibatis.annotations.Mapper;
 
-public interface UserMapper extends Mapper<User> {
-    User login(User user);
+
+@Mapper
+public interface UserMapper extends BaseMapper<User> {
+
 }
