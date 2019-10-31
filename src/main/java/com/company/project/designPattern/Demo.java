@@ -102,6 +102,8 @@ public class Demo {
         return instance;
     }
     public static void main(String[] args) {
+        StringBuilder sb = new StringBuilder();
+        StringBuffer s = new StringBuffer();
 
 
     }

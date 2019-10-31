@@ -1,139 +1,24 @@
 package com.company.project.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
 import java.util.Date;
 import javax.persistence.*;
 
+@Data
+@AllArgsConstructor
 public class User {
     public static final Long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String username;
+    private String name;
 
-    private String password;
+    private String age;
 
-    @Column(name = "nick_name")
-    private String nickName;
+    private String address;
 
-    private Integer sex;
+    private String created_time;
 
-    @Column(name = "register_date")
-    private Date registerDate;
-
-    private Integer mobile;
-
-    private String email;
-
-    /**
-     * @return id
-     */
-    public Integer getId() {
-        return id;
-    }
-
-    /**
-     * @param id
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * @return username
-     */
-    public String getUsername() {
-        return username;
-    }
-
-    /**
-     * @param username
-     */
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    /**
-     * @return password
-     */
-    public String getPassword() {
-        return password;
-    }
-
-    /**
-     * @param password
-     */
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    /**
-     * @return nick_name
-     */
-    public String getNickName() {
-        return nickName;
-    }
-
-    /**
-     * @param nickName
-     */
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
-    }
-
-    /**
-     * @return sex
-     */
-    public Integer getSex() {
-        return sex;
-    }
-
-    /**
-     * @param sex
-     */
-    public void setSex(Integer sex) {
-        this.sex = sex;
-    }
-
-    /**
-     * @return register_date
-     */
-    public Date getRegisterDate() {
-        return registerDate;
-    }
-
-    /**
-     * @param registerDate
-     */
-    public void setRegisterDate(Date registerDate) {
-        this.registerDate = registerDate;
-    }
-
-    /**
-     * @return mobile
-     */
-    public Integer getMobile() {
-        return mobile;
-    }
-
-    /**
-     * @param mobile
-     */
-    public void setMobile(Integer mobile) {
-        this.mobile = mobile;
-    }
-
-    /**
-     * @return email
-     */
-    public String getEmail() {
-        return email;
-    }
-
-    /**
-     * @param email
-     */
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    private String updated_time;
 }

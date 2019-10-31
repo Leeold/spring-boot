@@ -20,6 +20,14 @@ public enum ErrorEnum {
     public int getCode() {
         return code;
     }
-    //测试一下 11111
+    public static ErrorEnum forEach_ErrorEnum(int index){
+     ErrorEnum [] myArray = ErrorEnum.values();
+        for (ErrorEnum errorEnum : myArray) {
+           if(index == errorEnum.getCode()){
+               return errorEnum;
+           }
+        }
+        return null;
+    }
 
 }

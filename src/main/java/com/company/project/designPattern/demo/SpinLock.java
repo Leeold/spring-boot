@@ -1,7 +1,13 @@
 package com.company.project.designPattern.demo;
 
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
  * 自旋锁
@@ -24,6 +30,8 @@ public class SpinLock {
     }
     public static void main(String[] args) {
         SpinLock spinLock = new SpinLock();
+        Lock lock = new ReentrantLock();
+        Condition condition = lock.newCondition();
         new Thread(()->{
             spinLock.myLock();
             try {
