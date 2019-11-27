@@ -28,7 +28,7 @@ public class UserController {
 
     @PostMapping("/list")
     public Result list() {
-        List<User> list = userMapper.selectList(null);
+        List<User> list = userService.selectList();
         return ResultGenerator.genSuccessResult(list);
     }
 }

@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
     @Override
     public List<User> selectList(){
-        return userMapper.selectList(null);
+        return userMapper.selectList(new QueryWrapper<User>().lambda().eq(User::getId,1));
     }
 
 }
