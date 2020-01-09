@@ -50,6 +50,24 @@ public class List {
     }
 
     /**
+     * 递归反转链表
+     * @param head
+     * @return
+     */
+    public static ListNode reverseList(ListNode head) {
+
+        if(head == null || head.next ==null){
+            return head;
+        }
+
+        ListNode temp = head.next;
+        ListNode newHead  = reverseList(head.next);
+        temp.next = head;
+        return newHead;
+    }
+
+
+    /**
      * 输入一个链表，输出链表倒数第K个节点
      * @param args
      */
@@ -157,10 +175,9 @@ public class List {
         ListNode listNode2 = new ListNode(2);
         ListNode listNode3 = new ListNode(3);
         ListNode listNode4 = new ListNode(4);
-        listNode1.next = listNode2;
-        listNode2.next = listNode3;
-        listNode3.next = listNode4;
-        listNode4.next = listNode2;
-        System.out.println(listLoop(listNode1));
+        listNode1.setNext(listNode2);
+        listNode2.setNext(listNode3);
+        listNode3.setNext(listNode4);
+        System.out.println(reverseList(listNode1).next.val);
     }
 }
