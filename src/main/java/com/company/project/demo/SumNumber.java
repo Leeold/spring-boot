@@ -1,6 +1,8 @@
 package com.company.project.demo;
 
 
+import java.util.HashSet;
+
 /**
  * 求递增数组中相加等于10的元素对(使用冒泡排序)
  */

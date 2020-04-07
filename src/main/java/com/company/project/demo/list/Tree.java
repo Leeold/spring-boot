@@ -1,6 +1,7 @@
 package com.company.project.demo.list;
 
 import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 public class Tree {
@@ -53,7 +54,7 @@ public class Tree {
 
     /**
      * 非递归思想，借助栈来实现
-     * @param args
+     * @param
      */
 
     public static int maxDepth2(TreeNode treeNode){
@@ -111,6 +112,74 @@ public class Tree {
             }else{
                 isT = true;
             }
+        }
+        return true;
+    }
+
+    /**
+     * 判断一颗二叉树是否为镜像二叉树，或是对称的
+     * @param
+     */
+
+    private boolean isSymmetrical(TreeNode left, TreeNode right) {
+        if(left == null && right == null){
+            return true;
+        }
+        if(left == null || right == null){
+            return false;
+        }
+
+        if(left.val == right.val){
+            return isSymmetrical(left.left,right.right) && isSymmetrical(left.right,right.left);
+        }
+
+        return false;
+    }
+    /**
+     * 判断一颗二叉树是否为镜像二叉树，或是对称的 利用DFS
+     * @param
+     */
+    boolean isSymmetricalDFS(TreeNode pRoot)
+    {
+        if(pRoot == null) return true;
+        Stack<TreeNode> s = new Stack<>();
+        s.push(pRoot.left);
+        s.push(pRoot.right);
+        while(!s.empty()) {
+            TreeNode right = s.pop();//成对取出
+            TreeNode left = s.pop();
+            if(left == null && right == null) continue;
+            if(left == null || right == null) return false;
+            if(left.val != right.val) return false;
+            //成对插入
+            s.push(left.left);
+            s.push(right.right);
+            s.push(left.right);
+            s.push(right.left);
+        }
+        return true;
+    }
+    /**
+     * 判断一颗二叉树是否为镜像二叉树，或是对称的 利用BFS
+     * @param
+     */
+    boolean isSymmetricalBFS(TreeNode pRoot)
+    {
+        if(pRoot == null) return true;
+        Queue<TreeNode> s = new LinkedList<>();
+        s.offer(pRoot.left);
+        s.offer(pRoot.right);
+        while(!s.isEmpty()) {
+            TreeNode left= s.poll();//成对取出
+            TreeNode right= s.poll();
+            if(left == null && right == null) continue;
+            if(left == null || right == null) return false;
+            if(left.val != right.val) return false;
+            //成对插入
+            s.offer(left.left);
+            s.offer(right.right);
+            s.offer(left.right);
+            s.offer(right.left);
         }
         return true;
     }
